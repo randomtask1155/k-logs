@@ -1,4 +1,4 @@
-## Setting up the Environemtn
+## Setting up the Environemnt
 
 
 ### Collected system information
@@ -21,6 +21,8 @@ docker pull docker.elastic.co/logstash/logstash:6.6.2
 * Make this repository is your current working directory
 * Start Kibana
 https://www.elastic.co/guide/en/kibana/current/docker.html
+
+**NOTE** update docker-compose.yml and replace the ip address for `ELASTICSEARCH_HOSTS` with the ip address of your mac
 
 ```
 docker-compose up 
@@ -53,3 +55,14 @@ find ~/gorouter/ | egrep "access.log.*|gorouter.stdout.*" | while read line; do 
 logstash will import all the logs int elastic search with index name like `logstash-2019.03.18`.  You can confirm this by going to  [http://127.0.0.1:9200/_cat/indices?v](http://127.0.0.1:9200/_cat/indices?v).
 
 Once all the data is imported you can then access kibian from [http://127.0.0.1:5601](http://127.0.0.1:5601) and create an index by going to management tab. then create an index pattern with `logstash*`.  Also Filter time by `@timestamp`.  Then go to discover and start searching the logs.
+
+
+
+
+## Troubleshooting
+
+### Attach a bash process to docker container
+
+```
+docker exec -it CONTAINERID /bin/bash
+```
