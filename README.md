@@ -41,7 +41,7 @@ https://www.elastic.co/guide/en/logstash/current/docker.html
 **NOTE** replace the fake ip address in the `--add-host` arg with the ip address of your mac
 
 ```
-docker run --rm -it -e xpack.monitoring.elasticsearch.url="my.es.local" --add-host my.es.local:192.168.x.x -v `pwd`/pipeline/:/usr/share/logstash/pipeline/ -v `pwd`/logs:/support/logs -v `pwd`/logstash-patterns:/usr/share/logstash/patterns_extra docker.elastic.co/logstash/logstash:6.6.2
+docker run --rm -it -e xpack.monitoring.elasticsearch.url="my.es.local" --add-host my.es.local:192.168.x.x -v `pwd`/pipeline/:/usr/share/logstash/pipeline/ -v `pwd`/logs:/support/logs -v `pwd`/logstash-patterns:/support/patterns docker.elastic.co/logstash/logstash:6.6.2
 ```
 
 ### Load logs files
