@@ -4,3 +4,4 @@ gorouter.stdout.log*
 access.log*
 *.log
 *.swp
+logs/*
