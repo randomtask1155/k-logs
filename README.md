@@ -46,10 +46,11 @@ docker run --rm -it -e xpack.monitoring.elasticsearch.url="my.es.local" --add-ho
 
 ### Load logs files
 
-Copy logs files into `logs/COMPONENT`.  Take gorouter for example and copy both the access and stdout logs into the gorouter folder
+Copy the log bundle for each vm into the `./logs` folder
 
 ```
-find ~/gorouter/ | egrep "access.log.*|gorouter.stdout.*" | while read line; do cp $line logs/gorouter/; done
+k-logs> ls logs/cf-55347fc89c43e376eff7.cloud_controller-20190319-142418-248579353
+bosh-dns            bpm                 cloud_controller_ng loggregator_agent   route_registrar     routing-api         statsd_injector     syslog_forwarder
 ```
 
 logstash will import all the logs int elastic search with index name like `logstash-2019.03.18`.  You can confirm this by going to  [http://127.0.0.1:9200/_cat/indices?v](http://127.0.0.1:9200/_cat/indices?v).
